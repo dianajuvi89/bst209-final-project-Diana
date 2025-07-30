@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Project Overview
 
-The National Health and Nutrition Examination Survey(NHANES) assesses the health and nutritional statusof adults and children in the United States.The goal is to use these covariates to predict the occurrence of diabetes, cancer, heart attack, stroke,OR depression.
+The National Health and Nutrition Examination Survey (NHANES) assesses the health and nutritional statusof adults and children in the United States.The goal is to use these covariates to predict the occurrence of diabetes, cancer, heart attack, stroke,OR depression.
    
 ## Research Question
    
@@ -41,9 +41,7 @@ Your goal is to use these covariates to predict the occurrence of diabetes, canc
 ### Loading data and libraries
 As part of data processing, choose ONE of the five diseases and merge the corresponding variable from the `questionnaire.csv` dataset with `covariate_df`. This disease is the outcome that your model should predict. The relevant variable names in `questionnaire.csv` are: DIQ010 (diabetes), MCQ220 (cancer), MCQ160E (heart attack), MCQ160F (stroke), and DPQ020 (depression). (You can view the entire questionnaire dictionary [here](https://wwwn.cdc.gov/Nchs/Nhanes/Search/variablelist.aspx?Component=Questionnaire&CycleBeginYear=2013).) For each disease variable, you can take `1` to be affected, `2` to be unaffected, and all other numeric values to be unknown/ignored. 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-set.seed(1)
+```{r , include=FALSE}
 library(caret)
 library(dplyr)
 library(ggplot2)
@@ -80,8 +78,8 @@ demographics<-c("DMDHRBR4","DMDEDUC2","DMDHREDU", "DMDHRAGE","DMDHRGND","DMDYRSU
 ## diastolic 3rd read, systolic 3rd read, DXA abdominal diameter, BMI (kg/m2), waist circum (cm), overall oral health
 examination<-c("BPXDI3","BPXSY3", "BMDAVSAD", "BMXBMI", "BMXWAIST", "OHDEXSTS")
 
-dietary<-c()
-lab<-c()
+# dietary<-c()
+# lab<-c()
 
 ```
 
@@ -108,6 +106,6 @@ lab<-c()
 3. Build any 3 machine learning models that have been presented in class that use your choice of covariates to predict the given outcome variable. Explain why you chose those covariates and interpret the model performances. If you are including categorical variables as covariates in a `glmnet` model (lasso or ridge regression), please remember that you will need to convert your covariate data frame into a *model matrix*, e.g. by calling the `model.matrix` function:
 
 ```{r}
-model_matrix = model.matrix(~.-1, my_covariate_df)
+# model_matrix = model.matrix(~.-1, my_covariate_df)
 ```
 
